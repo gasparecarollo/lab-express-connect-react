@@ -6,28 +6,50 @@ function DisplayCard({ quote }) {
 
   useEffect(() => {
 
-    fetch({ origin: "https://localhost:6116/" })
+    fetch({ origin: "https://localhost:6116/logs/" })
       .then((response) => response.json())
       .then((data) => setCaptainLogs(data))
       .catch((error) => console.error("Error fetching data", error));
   }, []);
 
   const captainsLogReportRender = captainLogs.map((eachCaptainQuote) => {
-    const loggedQuote = quote.some((saying) => saying.id === eachCaptainQuote.id)
-  }
-  
+
     return (
-      <h4>
-        <div className="captainName"> {`${eachCaptainQuote.name}`} </> 
+
+      <div className="card_container" >
+
+        <div className="captainNameDiv"> <h4> {`${eachCaptainQuote.captainName}`} </h4>  </div>
+
+        <div className="titleDiv"> {`${eachCaptainQuote.title}`} </div>
+
+        <div className="postDiv"> {`${eachCaptainQuote.post}`} </div>
+
+        <div className="mistakesDiv"> {`${eachCaptainQuote.mistakesWereMadeToday}`} </div>
+
+        <div className="daysSinceDiv"> {`${eachCaptainQuote.daysSinceLastCrisis}`} </div>
 
 
-        </h4>
+        <button
+          className=""
+          onClick={() => updateLog(eachCaptainQuote)}
+        >
+          Update Captain's Log
+        </button>
 
+        <button
+          className=""
+          onClick={() => deleteLog(eachCaptainQuote)}
+        >
+          Delete Captain's Log
+        </button>
+      </div >
 
-          < div className="title" > {`${eachCaptainQuote.title}`} </div>
+    )
+  }
 
   )
+}
 
 
 
-  export default App;
+export default App;
