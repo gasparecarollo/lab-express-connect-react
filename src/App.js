@@ -30,19 +30,19 @@ function DisplayCard({ quote }) {
 
 
         <button
-          className=""
+          className="updateBttn"
           onClick={() => updateLog(eachCaptainQuote)}
         >
           Update Captain's Log
         </button>
 
         <button
-          className=""
+          className="deleteBttn"
           onClick={() => deleteLog(eachCaptainQuote)}
         >
           Delete Captain's Log
         </button>
-      </div >
+      </div>
 
     )
   }
